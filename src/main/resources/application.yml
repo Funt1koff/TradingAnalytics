@@ -1,0 +1,13 @@
+micronaut:
+  application:
+    name: trading-analytics
+  server:
+    port: 8080
+  environment:
+    variables: true
+
+integration:
+  twelvedata:
+    rest-url: https://api.twelvedata.com
+    ws-url: wss://ws.twelvedata.com
+    apikey: ${TWELVEDATA_API_KEY:api_key}
