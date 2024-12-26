@@ -38,4 +38,10 @@ public class TwelveDataController {
         log.info("Getting bonds data for symbol: {}, exchange: {}, country: {}, format: {}, delimiter: {}, show_plan: {}, page: {}, outputsize: {}", symbol, exchange, country, format, delimiter, show_plan, page, outputsize);
         return twelveDataService.getBondsData(symbol, exchange, country, format, delimiter, show_plan, page, outputsize);
     }
+
+    @Get(value="/realtime{?code}", produces = MediaType.APPLICATION_JSON_STREAM)
+    public Flux<String> getRealtime(String code) {
+        log.info("Subscribing to ticker: {}", code);
+        return twelveDataService.subscribeToTicker(code);
+    }
 }

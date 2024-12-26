@@ -9,5 +9,11 @@ micronaut:
 integration:
   twelvedata:
     rest-url: https://api.twelvedata.com
-    ws-url: wss://ws.twelvedata.com
+    ws-url: wss://ws.twelvedata.com/v1/quotes/price?apikey=${TWELVEDATA_API_KEY:api_key}
     apikey: ${TWELVEDATA_API_KEY:api_key}
+
+
+logging:
+  level:
+    io.micronaut.websocket: DEBUG
+    io.netty.handler.codec.http.websocketx: DEBUG
